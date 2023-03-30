@@ -26,10 +26,10 @@
 
                     <div class="col-12 text-center mt-4 border rounded p-2">                       
                         <ul>
-                            <li v-for="toDoItem, index in toDoList">
+                            <li v-for="toDoItem, index in toDoList" @click="doneToDo(index)" :class="toDoItem.done ? 'text-decoration-line-through' : '' ">
                                 <div class="d-flex justify-content-between align-items-center">
                                     {{toDoItem.name}}
-                                    <button @click="removeItem" class="btn btn-outline-danger"><i class="fa-solid fa-circle-xmark"></i></button>
+                                    <button @click.stop="removeItem" class="btn btn-outline-danger me-2"><i class="fa-solid fa-circle-xmark"></i></button>
                                 </div>
                             </li>
                         </ul>

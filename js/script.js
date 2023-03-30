@@ -49,6 +49,10 @@ createApp({
             }
             this.toDoList.push(newToDoItem);
             this.newToDo = ''
+        },
+        doneToDo(index) {
+            this.toDoList[index].done ? this.toDoList[index].done = false : this.toDoList[index].done = true
+
         }
     }
 }).mount('#app')
