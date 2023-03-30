@@ -18,8 +18,9 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="d-flex flex-col justify-content-between gap-2">
-                            <input type="text" class="input-gropu-text w-100">                           
-                            <button class="btn btn-success"><i class="fa-solid fa-add"></i></button>
+                            <input type="text" class="input-gropu-text w-100" v-model="newToDo">
+                            <div v-if="error" class="text-danger">L'item da inserire deve essere di almeno 2 lettere</div>                           
+                            <button class="btn btn-success" @click="addItem"><i class="fa-solid fa-add"></i></button>
                         </div>
                     </div>
 
@@ -28,7 +29,7 @@
                             <li v-for="toDoItem, index in toDoList">
                                 <div class="d-flex justify-content-between align-items-center">
                                     {{toDoItem.name}}
-                                    <button class="btn btn-outline-danger"><i class="fa-solid fa-circle-xmark"></i></button>
+                                    <button @click="removeItem" class="btn btn-outline-danger"><i class="fa-solid fa-circle-xmark"></i></button>
                                 </div>
                             </li>
                         </ul>
